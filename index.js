@@ -1,13 +1,32 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const isTargetMetArray = [];
+  array.map((value, index) => {
+    array.map((val, i) => {
+      if (i !== index) {
+        isTargetMetArray.push(value + val === target);
+      }
+    });
+  });
+  if (isTargetMetArray.includes(true)) {
+    return true;
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  O(n) + O(n*n)*n + O(n)
 */
 
 /* 
   Add your pseudocode here
+  1. Create an empty array called `isTargetMetArray` to store boolean values of whether or not values add up to target
+  2. map through the array.
+  3. for every value add each value in the array except for the value corresponding to it's own index
+  4. store true or false in the array depending on whether the values add up to target.
+  5. check if the array includes any instance of true.
+  4. return true if the array includes true otherwise return false.
 */
 
 /*
